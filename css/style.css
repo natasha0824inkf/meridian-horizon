@@ -154,7 +154,7 @@ p + p { margin-top: 1em; }
   margin: 0 auto;
 }
 
-.nav-logo { display: flex; flex-direction: row; align-items: center; gap: 0.65rem; color: var(--white); }
+.nav-logo { display: flex; flex-direction: row; align-items: center; gap: 0.65rem; color: var(--white); flex-shrink: 0; }
 .logo-icon { width: 34px; height: auto; flex-shrink: 0; }
 .logo-text-block { display: flex; flex-direction: column; }
 .nav-logo .logo-main {
@@ -163,6 +163,7 @@ p + p { margin-top: 1em; }
   font-weight: 600;
   letter-spacing: 0.04em;
   line-height: 1;
+  white-space: nowrap;
 }
 .nav-logo .logo-sub {
   font-size: 0.58rem;
@@ -171,23 +172,25 @@ p + p { margin-top: 1em; }
   text-transform: uppercase;
   color: var(--gold);
   margin-top: 4px;
+  white-space: nowrap;
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 1.75rem;
+  gap: 1.1rem;
 }
 
 .nav-links a {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 500;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.65);
   transition: color var(--transition);
   position: relative;
   padding-bottom: 2px;
+  white-space: nowrap;
 }
 .nav-links a::after {
   content: '';
@@ -205,6 +208,8 @@ p + p { margin-top: 1em; }
 .nav-links a.active::after { transform: scaleX(1); }
 
 .nav-cta { font-size: 0.7rem; padding: 0.55rem 1.3rem; }
+/* Logo is the home link — hide redundant HOME in desktop nav */
+.nav-links a.nav-home { display: none; }
 
 .nav-hamburger {
   display: none;

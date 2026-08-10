@@ -74,9 +74,10 @@
   }
 
   function header() {
-    const desktopLinks = pages.map(p =>
-      `<a href="${BASE}${p.href}"${isActive(p.href) ? ' class="active"' : ''} data-i18n="${p.i18n}">${p.label}</a>`
-    ).join('');
+    const desktopLinks = pages.map(p => {
+      const cls = [p.href === 'index.html' ? 'nav-home' : '', isActive(p.href) ? 'active' : ''].filter(Boolean).join(' ');
+      return `<a href="${BASE}${p.href}"${cls ? ` class="${cls}"` : ''} data-i18n="${p.i18n}">${p.label}</a>`;
+    }).join('');
     const mobileLinks = pages.map(p =>
       `<a href="${BASE}${p.href}"${isActive(p.href) ? ' class="active"' : ''} data-i18n="${p.i18n}">${p.label}</a>`
     ).join('');
