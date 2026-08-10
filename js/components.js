@@ -45,26 +45,46 @@
     { href: 'industries.html', label: 'Industries',    i18n: 'nav-industries' },
     { href: 'why-us.html',     label: 'Why Choose Us', i18n: 'nav-why' },
     { href: 'partners.html',   label: 'Partners',      i18n: 'nav-partners' },
+    { href: 'blog/index.html', label: 'Insights',      i18n: 'nav-insights' },
     { href: 'contact.html',    label: 'Contact',       i18n: 'nav-contact' },
   ];
 
+  /* Pages served from a known subdirectory need relative path adjustment */
+  const SUBDIRS = ['blog'];
+  const BASE = (function () {
+    const parts = window.location.pathname.split('/').filter(Boolean);
+    const last = parts[parts.length - 1] || '';
+    if (last.indexOf('.') !== -1) parts.pop(); // remove filename
+    return SUBDIRS.indexOf(parts[parts.length - 1]) !== -1 ? '../' : '';
+  }());
+
   function currentPage() {
-    return window.location.pathname.split('/').pop() || 'index.html';
+    const path = window.location.pathname;
+    const m = path.match(/\/(blog\/[^/]*)$/) || path.match(/\/([^/]+\.html)$/);
+    if (m) return m[1];
+    if (path.indexOf('/blog') !== -1) return 'blog/index.html';
+    return 'index.html';
+  }
+
+  function isActive(href) {
+    const cur = currentPage();
+    if (cur === href) return true;
+    if (href === 'blog/index.html' && cur.indexOf('blog/') === 0) return true;
+    return false;
   }
 
   function header() {
-    const cur = currentPage();
     const desktopLinks = pages.map(p =>
-      `<a href="${p.href}"${cur === p.href ? ' class="active"' : ''} data-i18n="${p.i18n}">${p.label}</a>`
+      `<a href="${BASE}${p.href}"${isActive(p.href) ? ' class="active"' : ''} data-i18n="${p.i18n}">${p.label}</a>`
     ).join('');
     const mobileLinks = pages.map(p =>
-      `<a href="${p.href}"${cur === p.href ? ' class="active"' : ''} data-i18n="${p.i18n}">${p.label}</a>`
+      `<a href="${BASE}${p.href}"${isActive(p.href) ? ' class="active"' : ''} data-i18n="${p.i18n}">${p.label}</a>`
     ).join('');
 
     return `
 <header class="site-header" id="site-header">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo" aria-label="Meridian Horizon – Home">
+    <a href="${BASE}index.html" class="nav-logo" aria-label="Meridian Horizon – Home">
       ${logoIcon}
       <div class="logo-text-block">
         <span class="logo-main">Meridian Horizon</span>
@@ -73,7 +93,7 @@
     </a>
     <nav class="nav-links" aria-label="Main navigation">${desktopLinks}</nav>
     <div class="nav-right">
-      <a href="contact.html" class="btn btn-primary nav-cta" data-i18n="nav-cta">Get in Touch</a>
+      <a href="${BASE}contact.html" class="btn btn-primary nav-cta" data-i18n="nav-cta">Get in Touch</a>
       <div class="nav-controls">
         <button id="lang-btn" aria-label="Passer en français"><span class="ls-opt ls-en ls-active">EN</span><span class="ls-sep"> · </span><span class="ls-opt ls-fr">FR</span></button>
         <button id="theme-btn" aria-label="Switch to dark mode">
@@ -120,18 +140,19 @@
       <div>
         <p class="footer-col-heading" data-i18n="footer-quick-links">Quick Links</p>
         <div class="footer-links">
-          <a href="index.html" data-i18n="footer-link-home">Home</a>
-          <a href="about.html" data-i18n="footer-link-about">About Us</a>
-          <a href="services.html" data-i18n="footer-link-services">Services</a>
-          <a href="industries.html" data-i18n="footer-link-industries">Industries</a>
+          <a href="${BASE}index.html" data-i18n="footer-link-home">Home</a>
+          <a href="${BASE}about.html" data-i18n="footer-link-about">About Us</a>
+          <a href="${BASE}services.html" data-i18n="footer-link-services">Services</a>
+          <a href="${BASE}industries.html" data-i18n="footer-link-industries">Industries</a>
+          <a href="${BASE}blog/index.html" data-i18n="footer-link-insights">Insights</a>
         </div>
       </div>
       <div>
         <p class="footer-col-heading" data-i18n="footer-company-col">Company</p>
         <div class="footer-links">
-          <a href="why-us.html" data-i18n="footer-link-why">Why Choose Us</a>
-          <a href="partners.html" data-i18n="footer-link-partners">Partners</a>
-          <a href="contact.html" data-i18n="footer-link-contact">Contact</a>
+          <a href="${BASE}why-us.html" data-i18n="footer-link-why">Why Choose Us</a>
+          <a href="${BASE}partners.html" data-i18n="footer-link-partners">Partners</a>
+          <a href="${BASE}contact.html" data-i18n="footer-link-contact">Contact</a>
         </div>
       </div>
       <div>
@@ -144,9 +165,9 @@
     <div class="footer-bottom">
       <p class="footer-bottom-text">&copy; ${year} Meridian Horizon Commercial Brokers LLC. All rights reserved. Dubai, United Arab Emirates</p>
       <p class="footer-bottom-text">
-        <a href="privacy.html" style="color:inherit;text-decoration:none;transition:color 0.2s ease" onmouseover="this.style.color='#C49A3C'" onmouseout="this.style.color='inherit'">Privacy Policy</a>
+        <a href="${BASE}privacy.html" style="color:inherit;text-decoration:none;transition:color 0.2s ease" onmouseover="this.style.color='#C49A3C'" onmouseout="this.style.color='inherit'">Privacy Policy</a>
         &nbsp;&middot;&nbsp;
-        <a href="terms.html" style="color:inherit;text-decoration:none;transition:color 0.2s ease" onmouseover="this.style.color='#C49A3C'" onmouseout="this.style.color='inherit'">Terms &amp; Conditions</a>
+        <a href="${BASE}terms.html" style="color:inherit;text-decoration:none;transition:color 0.2s ease" onmouseover="this.style.color='#C49A3C'" onmouseout="this.style.color='inherit'">Terms &amp; Conditions</a>
       </p>
     </div>
   </div>
@@ -207,7 +228,7 @@
       });
     }, { threshold: 0.10, rootMargin: '0px 0px -32px 0px' });
 
-    document.querySelectorAll('.service-card, .feature-item, .service-detail-card, .about-n-card, .value-item, .partner-logo, .industry-card').forEach(function (el) {
+    document.querySelectorAll('.service-card, .feature-item, .service-detail-card, .about-n-card, .value-item, .partner-logo, .industry-card, .blog-card').forEach(function (el) {
       el.classList.add('reveal');
       obs.observe(el);
     });
