@@ -108,8 +108,12 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p class="footer-bottom-text">&copy; ${year} Meridian Horizon Commercial Brokers LLC. All rights reserved.</p>
-      <p class="footer-bottom-text">Dubai, United Arab Emirates</p>
+      <p class="footer-bottom-text">&copy; ${year} Meridian Horizon Commercial Brokers LLC. All rights reserved. Dubai, United Arab Emirates</p>
+      <p class="footer-bottom-text">
+        <a href="privacy.html" style="color:inherit;text-decoration:none;transition:color 0.2s ease" onmouseover="this.style.color='#C49A3C'" onmouseout="this.style.color='inherit'">Privacy Policy</a>
+        &nbsp;&middot;&nbsp;
+        <a href="terms.html" style="color:inherit;text-decoration:none;transition:color 0.2s ease" onmouseover="this.style.color='#C49A3C'" onmouseout="this.style.color='inherit'">Terms &amp; Conditions</a>
+      </p>
     </div>
   </div>
 </footer>
