@@ -277,8 +277,11 @@ section { padding: var(--section-py) 0; }
 /* === Hero: Home === */
 
 .home-hero {
-  background: var(--navy);
-  min-height: calc(100vh - 70px);
+  background-color: var(--navy);
+  background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1600&fit=crop&crop=entropy&cs=tinysrgb&q=80');
+  background-size: cover;
+  background-position: center 55%;
+  min-height: 80vh;
   display: flex;
   align-items: center;
   position: relative;
@@ -292,21 +295,7 @@ section { padding: var(--section-py) 0; }
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle, rgba(196, 154, 60, 0.10) 1px, transparent 1px);
-  background-size: 36px 36px;
-  pointer-events: none;
-}
-
-.home-hero::after {
-  content: '';
-  position: absolute;
-  right: -10%;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 55vw;
-  height: 55vw;
-  border-radius: 50%;
-  background: radial-gradient(circle at center, rgba(22, 42, 74, 0.8) 0%, transparent 70%);
+  background: linear-gradient(105deg, rgba(12,28,53,0.93) 0%, rgba(12,28,53,0.82) 50%, rgba(12,28,53,0.52) 100%);
   pointer-events: none;
 }
 
