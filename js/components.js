@@ -45,7 +45,7 @@
     { href: 'industries.html', label: 'Industries',    i18n: 'nav-industries' },
     { href: 'why-us.html',     label: 'Why Choose Us', i18n: 'nav-why' },
     { href: 'partners.html',   label: 'Partners',      i18n: 'nav-partners' },
-    { href: 'blog/index.html', label: 'Insights',      i18n: 'nav-insights' },
+    { href: 'blog/index.html', label: 'Blog',           i18n: 'nav-insights' },
     { href: 'contact.html',    label: 'Contact',       i18n: 'nav-contact' },
   ];
 
