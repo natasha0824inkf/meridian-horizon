@@ -372,9 +372,10 @@ section { padding: var(--section-py) 0; }
 .service-card {
   background: var(--white);
   padding: 2.5rem;
-  transition: background var(--transition);
+  transition: background var(--transition), box-shadow var(--transition);
+  box-shadow: inset 0 -3px 0 transparent;
 }
-.service-card:hover { background: var(--off-white); }
+.service-card:hover { background: var(--off-white); box-shadow: inset 0 -3px 0 var(--gold); }
 
 .service-icon {
   width: 40px;
@@ -826,7 +827,7 @@ section { padding: var(--section-py) 0; }
   border: 1px solid rgba(255,255,255,0.22);
   color: rgba(255,255,255,0.60);
   border-radius: var(--radius);
-  padding: 0 0.55rem;
+  padding: 0 0.65rem;
   height: 28px;
   font-family: var(--font-sans);
   font-size: 0.60rem;
@@ -834,8 +835,19 @@ section { padding: var(--section-py) 0; }
   letter-spacing: 0.12em;
   cursor: pointer;
   transition: border-color var(--transition), color var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 0;
 }
-#lang-btn:hover { border-color: var(--gold); color: var(--gold); }
+#lang-btn:hover { border-color: var(--gold); }
+
+.ls-opt {
+  opacity: 0.42;
+  transition: color var(--transition), opacity var(--transition);
+  color: rgba(255,255,255,0.60);
+}
+.ls-opt.ls-active { color: var(--gold); opacity: 1; }
+.ls-sep { opacity: 0.32; color: rgba(255,255,255,0.40); }
 
 #theme-btn {
   background: none;
@@ -856,6 +868,42 @@ section { padding: var(--section-py) 0; }
 
 [data-theme="dark"] #theme-btn .icon-sun  { display: none; }
 [data-theme="dark"] #theme-btn .icon-moon { display: block; }
+
+/* =============================================
+   ENTERPRISE UI REFINEMENTS
+   ============================================= */
+
+h2 { font-weight: 600; }
+h3 { font-weight: 600; }
+
+p strong { color: var(--text); font-weight: 600; }
+.home-hero p strong { color: rgba(255,255,255,0.90); }
+
+.btn-primary {
+  box-shadow: 0 4px 16px rgba(196, 154, 60, 0.28);
+}
+.btn-primary:hover {
+  background: var(--gold-light);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 22px rgba(196, 154, 60, 0.46);
+}
+
+.btn-outline-dark { border-width: 2px; font-weight: 700; }
+.btn-outline-dark:hover { background: var(--navy); color: var(--white); transform: translateY(-1px); }
+
+.cta-strip .btn-outline-dark {
+  background: var(--navy);
+  color: var(--white);
+  border: 2px solid var(--navy);
+}
+.cta-strip .btn-outline-dark:hover {
+  background: var(--navy-mid);
+  border-color: var(--navy-mid);
+  transform: translateY(-1px);
+}
+
+[data-theme="dark"] p strong { color: #DDE4F2; }
+[data-theme="dark"] .home-hero p strong { color: rgba(255,255,255,0.92); }
 
 /* =============================================
    DARK MODE
