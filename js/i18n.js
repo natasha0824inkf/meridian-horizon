@@ -28,6 +28,7 @@
       'nav-industries': 'Secteurs',
       'nav-why':        'Pourquoi nous',
       'nav-partners':   'Partenaires',
+      'nav-insights':   'Actualités',
       'nav-contact':    'Contact',
       'nav-cta':        'Nous contacter',
 
@@ -40,6 +41,7 @@
       'footer-link-about':   'À propos',
       'footer-link-services':'Services',
       'footer-link-industries':'Secteurs',
+      'footer-link-insights':'Actualités',
       'footer-link-why':     'Pourquoi nous',
       'footer-link-partners':'Partenaires',
       'footer-link-contact': 'Contact',
@@ -50,6 +52,7 @@
       'bread-industries':'Secteurs',
       'bread-why':       'Pourquoi nous choisir',
       'bread-partners':  'Partenaires',
+      'bread-insights':  'Actualités',
       'bread-contact':   'Contact',
       'bread-privacy':   'Politique de confidentialité',
       'bread-terms':     'Conditions générales',
@@ -343,6 +346,17 @@
       'contact-wa-title': 'Vous préférez WhatsApp ?',
       'contact-wa-desc':  'La plupart de nos clients trouvent plus simple de nous contacter via WhatsApp. Envoyez-nous un message et nous vous répondrons rapidement.',
       'contact-wa-btn':   'Nous écrire sur WhatsApp',
+
+      /* ================================================================
+         INSIGHTS / BLOG
+         ================================================================ */
+      'blog-hero-h1':    'Actualités &amp; Ressources',
+      'blog-hero-p':     'Perspectives pratiques sur la création d\'entreprise aux EAU, les exigences bancaires, la structuration corporate et le développement commercial international.',
+      'blog-eyebrow':    'Nos articles',
+      'blog-h2':         'Dernières publications',
+      'blog-cta-h2':     'Une question sur la création d\'entreprise aux EAU ?',
+      'blog-cta-p':      'Notre équipe est disponible pour une consultation initiale confidentielle et sans engagement.',
+      'blog-cta-btn':    'Nous contacter',
     }
   };
 
