@@ -20,13 +20,13 @@
   /* ---------------------------------- */
 
   const pages = [
-    { href: 'index.html',      label: 'Home' },
-    { href: 'about.html',      label: 'About Us' },
-    { href: 'services.html',   label: 'Services' },
-    { href: 'industries.html', label: 'Industries' },
-    { href: 'why-us.html',     label: 'Why Choose Us' },
-    { href: 'partners.html',   label: 'Partners' },
-    { href: 'contact.html',    label: 'Contact' },
+    { href: 'index.html',      label: 'Home',          i18n: 'nav-home' },
+    { href: 'about.html',      label: 'About Us',      i18n: 'nav-about' },
+    { href: 'services.html',   label: 'Services',      i18n: 'nav-services' },
+    { href: 'industries.html', label: 'Industries',    i18n: 'nav-industries' },
+    { href: 'why-us.html',     label: 'Why Choose Us', i18n: 'nav-why' },
+    { href: 'partners.html',   label: 'Partners',      i18n: 'nav-partners' },
+    { href: 'contact.html',    label: 'Contact',       i18n: 'nav-contact' },
   ];
 
   function currentPage() {
@@ -36,10 +36,10 @@
   function header() {
     const cur = currentPage();
     const desktopLinks = pages.map(p =>
-      `<a href="${p.href}"${cur === p.href ? ' class="active"' : ''}>${p.label}</a>`
+      `<a href="${p.href}"${cur === p.href ? ' class="active"' : ''} data-i18n="${p.i18n}">${p.label}</a>`
     ).join('');
     const mobileLinks = pages.map(p =>
-      `<a href="${p.href}">${p.label}</a>`
+      `<a href="${p.href}" data-i18n="${p.i18n}">${p.label}</a>`
     ).join('');
 
     return `
@@ -50,10 +50,19 @@
       <span class="logo-sub">Commercial Brokers LLC</span>
     </a>
     <nav class="nav-links" aria-label="Main navigation">${desktopLinks}</nav>
-    <a href="contact.html" class="btn btn-primary nav-cta">Get in Touch</a>
-    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="nav-right">
+      <a href="contact.html" class="btn btn-primary nav-cta" data-i18n="nav-cta">Get in Touch</a>
+      <div class="nav-controls">
+        <button id="lang-btn" aria-label="Passer en français">FR</button>
+        <button id="theme-btn" aria-label="Switch to dark mode">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        </button>
+      </div>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
   <nav class="nav-mobile" id="nav-mobile" aria-label="Mobile navigation">${mobileLinks}</nav>
 </header>`;
@@ -70,7 +79,7 @@
           <span class="logo-main">Meridian Horizon</span>
           <span class="logo-sub">Commercial Brokers LLC</span>
         </div>
-        <p class="footer-tagline">Your trusted partner for company formation, corporate structuring and strategic business growth in the UAE and internationally.</p>
+        <p class="footer-tagline" data-i18n="footer-tagline">Your trusted partner for company formation, corporate structuring and strategic business growth in the UAE and internationally.</p>
         <div class="footer-social">
           <a href="${LINKEDIN_URL}" aria-label="LinkedIn" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -84,27 +93,27 @@
         </div>
       </div>
       <div>
-        <p class="footer-col-heading">Quick Links</p>
+        <p class="footer-col-heading" data-i18n="footer-quick-links">Quick Links</p>
         <div class="footer-links">
-          <a href="index.html">Home</a>
-          <a href="about.html">About Us</a>
-          <a href="services.html">Services</a>
-          <a href="industries.html">Industries</a>
+          <a href="index.html" data-i18n="footer-link-home">Home</a>
+          <a href="about.html" data-i18n="footer-link-about">About Us</a>
+          <a href="services.html" data-i18n="footer-link-services">Services</a>
+          <a href="industries.html" data-i18n="footer-link-industries">Industries</a>
         </div>
       </div>
       <div>
-        <p class="footer-col-heading">Company</p>
+        <p class="footer-col-heading" data-i18n="footer-company-col">Company</p>
         <div class="footer-links">
-          <a href="why-us.html">Why Choose Us</a>
-          <a href="partners.html">Partners</a>
-          <a href="contact.html">Contact</a>
+          <a href="why-us.html" data-i18n="footer-link-why">Why Choose Us</a>
+          <a href="partners.html" data-i18n="footer-link-partners">Partners</a>
+          <a href="contact.html" data-i18n="footer-link-contact">Contact</a>
         </div>
       </div>
       <div>
-        <p class="footer-col-heading">Contact</p>
+        <p class="footer-col-heading" data-i18n="footer-contact-col">Contact</p>
         <p class="footer-contact-line"><a href="tel:${PHONE}">${PHONE}</a></p>
         <p class="footer-contact-line"><a href="mailto:${EMAIL}">${EMAIL}</a></p>
-        <p class="footer-contact-line">Dubai, United Arab Emirates</p>
+        <p class="footer-contact-line" data-i18n="contact-loc-val">Dubai, United Arab Emirates</p>
       </div>
     </div>
     <div class="footer-bottom">
