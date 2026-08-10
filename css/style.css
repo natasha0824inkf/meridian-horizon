@@ -880,8 +880,44 @@ section { padding: var(--section-py) 0; }
 h2 { font-weight: 600; }
 h3 { font-weight: 600; }
 
+/* Section headings are the primary visual anchor - make them count */
+.section-header h2 {
+  font-size: clamp(2.4rem, 4.8vw, 4rem);
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+
 p strong { color: var(--text); font-weight: 600; }
 .home-hero p strong { color: rgba(255,255,255,0.90); }
+
+/* Contextual body links - subtle gold underline */
+.body-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(196,154,60,0.55);
+  text-underline-offset: 3px;
+  font-weight: 600;
+  transition: color var(--transition), text-decoration-color var(--transition);
+}
+.body-link:hover { color: var(--gold); text-decoration-color: var(--gold); }
+
+/* Small arrow-link used below feature/service items */
+.inline-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: 1rem;
+  transition: gap var(--transition), opacity var(--transition);
+}
+.inline-cta:hover { gap: 0.55rem; }
+.inline-cta svg { width: 12px; height: 12px; flex-shrink: 0; }
+
+[data-theme="dark"] .body-link { color: #DDE4F2; }
 
 .btn-primary {
   box-shadow: 0 4px 16px rgba(196, 154, 60, 0.28);
