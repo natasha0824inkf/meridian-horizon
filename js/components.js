@@ -10,6 +10,25 @@
 
 (function () {
 
+  /* ---- Logo SVG (white buildings, gold ground) ---- */
+  const logoIcon = '<svg class="logo-icon" viewBox="0 0 55 52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+    '<polygon points="2,34 11,34 16,29 7,29" fill="rgba(255,255,255,0.92)"/>' +
+    '<rect x="2" y="34" width="9" height="10" fill="rgba(255,255,255,0.68)"/>' +
+    '<polygon points="11,34 16,29 16,39 11,44" fill="rgba(255,255,255,0.38)"/>' +
+    '<polygon points="14,22 24,22 29,17 19,17" fill="rgba(255,255,255,0.92)"/>' +
+    '<rect x="14" y="22" width="10" height="22" fill="rgba(255,255,255,0.68)"/>' +
+    '<polygon points="24,22 29,17 29,39 24,44" fill="rgba(255,255,255,0.38)"/>' +
+    '<polygon points="26,9 36,9 41,4 31,4" fill="rgba(255,255,255,0.92)"/>' +
+    '<rect x="26" y="9" width="10" height="35" fill="rgba(255,255,255,0.68)"/>' +
+    '<polygon points="36,9 41,4 41,39 36,44" fill="rgba(255,255,255,0.38)"/>' +
+    '<polygon points="38,21 47,21 52,16 43,16" fill="rgba(255,255,255,0.92)"/>' +
+    '<rect x="38" y="21" width="9" height="23" fill="rgba(255,255,255,0.68)"/>' +
+    '<polygon points="47,21 52,16 52,39 47,44" fill="rgba(255,255,255,0.38)"/>' +
+    '<line x1="0" y1="44" x2="55" y2="44" stroke="#C49A3C" stroke-width="1.5" stroke-opacity="0.80"/>' +
+    '<line x1="2" y1="47" x2="53" y2="47" stroke="#C49A3C" stroke-width="1.0" stroke-opacity="0.50"/>' +
+    '<line x1="4" y1="50" x2="51" y2="50" stroke="#C49A3C" stroke-width="0.7" stroke-opacity="0.28"/>' +
+    '</svg>';
+
   /* ---- EDIT THESE BEFORE LAUNCH ---- */
   const PHONE            = '+971 [XX XXX XXXX]';      // [TODO] actual phone number
   const WHATSAPP_NUMBER  = '971XXXXXXXXX';             // [TODO] digits only, no + or spaces
@@ -39,21 +58,24 @@
       `<a href="${p.href}"${cur === p.href ? ' class="active"' : ''} data-i18n="${p.i18n}">${p.label}</a>`
     ).join('');
     const mobileLinks = pages.map(p =>
-      `<a href="${p.href}" data-i18n="${p.i18n}">${p.label}</a>`
+      `<a href="${p.href}"${cur === p.href ? ' class="active"' : ''} data-i18n="${p.i18n}">${p.label}</a>`
     ).join('');
 
     return `
 <header class="site-header" id="site-header">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo" aria-label="Meridian Horizon – Home">
-      <span class="logo-main">Meridian Horizon</span>
-      <span class="logo-sub">Commercial Brokers LLC</span>
+      ${logoIcon}
+      <div class="logo-text-block">
+        <span class="logo-main">Meridian Horizon</span>
+        <span class="logo-sub">Commercial Brokers LLC</span>
+      </div>
     </a>
     <nav class="nav-links" aria-label="Main navigation">${desktopLinks}</nav>
     <div class="nav-right">
       <a href="contact.html" class="btn btn-primary nav-cta" data-i18n="nav-cta">Get in Touch</a>
       <div class="nav-controls">
-        <button id="lang-btn" aria-label="Passer en français">FR</button>
+        <button id="lang-btn" aria-label="Passer en français"><span class="ls-opt ls-en ls-active">EN</span><span class="ls-sep"> · </span><span class="ls-opt ls-fr">FR</span></button>
         <button id="theme-btn" aria-label="Switch to dark mode">
           <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
           <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
@@ -76,8 +98,11 @@
     <div class="footer-grid">
       <div>
         <div class="footer-logo">
-          <span class="logo-main">Meridian Horizon</span>
-          <span class="logo-sub">Commercial Brokers LLC</span>
+          ${logoIcon}
+          <div class="logo-text-block">
+            <span class="logo-main">Meridian Horizon</span>
+            <span class="logo-sub">Commercial Brokers LLC</span>
+          </div>
         </div>
         <p class="footer-tagline" data-i18n="footer-tagline">Your trusted partner for company formation, corporate structuring and strategic business growth in the UAE and internationally.</p>
         <div class="footer-social">
@@ -126,6 +151,9 @@
     </div>
   </div>
 </footer>
+<button class="back-to-top" id="back-to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
 <a href="https://wa.me/${WHATSAPP_NUMBER}" class="whatsapp-fab" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
@@ -141,7 +169,7 @@
   const footerEl = document.getElementById('footer-placeholder');
   if (footerEl) footerEl.outerHTML = footer();
 
-  /* ---- Hamburger toggle ---- */
+  /* ---- Hamburger toggle + close on link tap ---- */
   document.addEventListener('click', function (e) {
     const btn = document.getElementById('nav-hamburger');
     const menu = document.getElementById('nav-mobile');
@@ -150,15 +178,39 @@
       const open = menu.classList.toggle('open');
       btn.classList.toggle('open', open);
       btn.setAttribute('aria-expanded', open.toString());
+    } else if (e.target.closest('#nav-mobile a') && menu.classList.contains('open')) {
+      menu.classList.remove('open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
     }
   });
 
-  /* ---- Scroll shadow on header ---- */
+  /* ---- Scroll: header shadow + back-to-top visibility ---- */
+  const backToTopBtn = document.getElementById('back-to-top');
   window.addEventListener('scroll', function () {
     const h = document.getElementById('site-header');
-    if (h) h.style.boxShadow = window.scrollY > 20
-      ? '0 2px 20px rgba(0,0,0,0.22)'
-      : 'none';
+    if (h) h.style.boxShadow = window.scrollY > 20 ? '0 2px 20px rgba(0,0,0,0.22)' : 'none';
+    if (backToTopBtn) backToTopBtn.classList.toggle('visible', window.scrollY > 500);
   }, { passive: true });
+
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  /* ---- Scroll reveal ---- */
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.10, rootMargin: '0px 0px -32px 0px' });
+
+    document.querySelectorAll('.service-card, .feature-item, .service-detail-card, .about-n-card, .value-item, .partner-logo, .industry-card').forEach(function (el) {
+      el.classList.add('reveal');
+      obs.observe(el);
+    });
+  }
 
 })();

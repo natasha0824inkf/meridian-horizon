@@ -59,7 +59,7 @@
          ================================================================ */
       'home-hero-eyebrow': 'Courtage commercial &amp; conseil aux EAU',
       'home-hero-h1':      'Votre passerelle vers les affaires aux Émirats et au-delà',
-      'home-hero-lead':    'Nous accompagnons entrepreneurs, PME et investisseurs internationaux dans la création d\'entreprise, la structuration corporate, les introductions bancaires et les partenariats stratégiques grâce à un réseau de professionnels de confiance.',
+      'home-hero-lead':    'Nous accompagnons entrepreneurs, PME et investisseurs internationaux dans la <strong>création d\'entreprise</strong>, la <strong>structuration corporate</strong>, les <strong>introductions bancaires</strong> et les <strong>partenariats stratégiques</strong> grâce à un réseau de professionnels de confiance.',
       'home-hero-cta1':    'Découvrir nos services',
       'home-hero-cta2':    'Nous contacter',
 
@@ -88,7 +88,7 @@
       'home-about-eyebrow': 'À propos de Meridian Horizon',
       'home-about-h2':      'Un cabinet fondé sur la confiance et les relations',
       'home-about-p1':      'Meridian Horizon Commercial Brokers LLC est un cabinet de courtage commercial et de conseil aux entreprises basé aux Émirats arabes unis. Nous accompagnons entrepreneurs, PME et investisseurs internationaux dans leur développement aux EAU et à l\'international.',
-      'home-about-p2':      'Notre force réside dans notre réseau — un écosystème sélectionné de professionnels du droit, de la finance, du corporate et du conseil, avec lesquels nous collaborons pour offrir un accompagnement de bout en bout à nos clients.',
+      'home-about-p2':      'Notre force réside dans notre <strong>réseau</strong> — un écosystème sélectionné de professionnels du droit, de la finance, du corporate et du conseil, avec lesquels nous collaborons pour offrir un accompagnement de bout en bout à nos clients.',
       'home-v1-title':      'Une approche fondée sur la confiance',
       'home-v1-desc':       'Nous travaillons dans la durée, pas ponctuellement. Votre succès est notre engagement continu.',
       'home-v2-title':      'Discrétion professionnelle',
@@ -108,7 +108,7 @@
       'home-f4-title':    'Portée internationale',
       'home-f4-desc':     'Au-delà des EAU, notre réseau couvre les marchés clés à l\'international, permettant des structurations transfrontalières et des expansions ciblées.',
       'home-f5-title':    'Orienté résultats',
-      'home-f5-desc':     'Notre valeur se mesure aux résultats concrets : licences obtenues, comptes ouverts, partenariats conclus, transactions finalisées.',
+      'home-f5-desc':     'Notre valeur se mesure aux résultats concrets : <strong>licences obtenues</strong>, <strong>comptes ouverts</strong>, <strong>partenariats conclus</strong>, transactions finalisées.',
       'home-f6-title':    'Confidentialité totale',
       'home-f6-desc':     'Toutes les missions clients sont traitées avec le plus haut niveau de discrétion. Vos informations restent protégées tout au long de l\'engagement.',
 
@@ -125,7 +125,7 @@
       'about-who-eyebrow': 'Qui sommes-nous',
       'about-who-h2':      'Un partenaire de confiance pour les affaires aux EAU',
       'about-who-p1':      'Meridian Horizon Commercial Brokers LLC est un cabinet de courtage commercial et de conseil aux entreprises basé aux Émirats arabes unis. Nous accompagnons entrepreneurs, PME et investisseurs internationaux tout au long du cycle des affaires aux EAU — de la création d\'entreprise jusqu\'à la banque, la structuration, l\'approvisionnement et les partenariats stratégiques.',
-      'about-who-p2':      'Notre approche est avant tout consultative. Avant de recommander une structure, une introduction ou un partenaire, nous prenons le temps de comprendre votre activité, vos objectifs et votre calendrier. Le résultat : des conseils et des connexions genuinement adaptés à votre situation.',
+      'about-who-p2':      'Notre approche est avant tout <strong>consultative</strong>. Avant de recommander une structure, une introduction ou un partenaire, nous prenons le temps de comprendre votre activité, vos objectifs et votre calendrier. Le résultat : des conseils et des connexions genuinement adaptés à votre situation.',
       'about-who-p3':      'Nous opérons via un réseau de partenaires professionnels — juristes, banquiers, comptables et spécialistes réglementaires — que nous avons sélectionnés et avec lesquels nous collaborons régulièrement. Cela nous permet d\'offrir un accompagnement de bout en bout sans jamais compromettre la qualité.',
 
       'about-mission-eyebrow': 'Notre mission',
@@ -177,7 +177,7 @@
       'services-s3-title': 'Structuration corporate',
       'services-s3-desc':  'Conseil stratégique sur la meilleure organisation de votre présence corporate — holding, entité en zone franche, couche offshore ou combinaison. Nous travaillons avec des conseillers juridiques et fiscaux qualifiés pour garantir que la structure recommandée est adaptée à votre juridiction et à vos objectifs.',
       'services-s4-title': 'Introductions bancaires',
-      'services-s4-desc':  'L\'ouverture d\'un compte bancaire aux EAU est l\'un des défis les plus courants. Nous facilitons les introductions auprès de gestionnaires de comptes dans des banques locales et internationales, aidant les clients à naviguer dans les exigences et à maximiser leurs chances de succès pour les comptes professionnels et personnels.',
+      'services-s4-desc':  '<strong>L\'ouverture d\'un compte bancaire</strong> aux EAU est l\'un des défis les plus courants. Nous facilitons les introductions auprès de gestionnaires de comptes dans des banques locales et internationales, aidant les clients à naviguer dans les exigences et à maximiser leurs chances de succès pour les comptes professionnels et personnels.',
       'services-s5-title': 'Conseil aux entreprises',
       'services-s5-desc':  'Conseil commercial pratique pour les entreprises à différents stades — de la faisabilité pré-création aux défis opérationnels, à la stratégie de croissance et à la planification d\'entrée sur le marché. Nous nous appuyons sur notre expérience directe aux EAU pour fournir des recommandations concrètes et actionnables.',
       'services-s6-title': 'Développement international des affaires',
@@ -354,10 +354,41 @@
     return /<[a-z][\s\S]*>/i.test(str) || /&[a-z#][a-z0-9]*;/i.test(str);
   }
 
-  function apply(lang) {
-    const t = T[lang] || {};
+  var _enCache = null;
+
+  function cacheEN() {
+    if (_enCache) return;
+    _enCache = {};
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
-      const key = el.getAttribute('data-i18n');
+      var key = el.getAttribute('data-i18n');
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+        _enCache[key] = { type: 'placeholder', val: el.placeholder };
+      } else if (el.tagName === 'OPTION') {
+        _enCache[key] = { type: 'text', val: el.textContent };
+      } else {
+        _enCache[key] = { type: 'html', val: el.innerHTML };
+      }
+    });
+  }
+
+  function apply(lang) {
+    cacheEN();
+    if (lang === DEFAULT) {
+      document.querySelectorAll('[data-i18n]').forEach(function (el) {
+        var key = el.getAttribute('data-i18n');
+        var c = _enCache[key];
+        if (!c) return;
+        if (c.type === 'placeholder') { el.placeholder = c.val; }
+        else if (c.type === 'text')   { el.textContent = c.val; }
+        else                          { el.innerHTML = c.val; }
+      });
+      document.documentElement.lang = 'en';
+      updateBtn('en');
+      return;
+    }
+    var t = T[lang] || {};
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n');
       if (!t[key]) return;
       if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
         el.placeholder = t[key];
@@ -369,15 +400,24 @@
         el.textContent = t[key];
       }
     });
-    document.documentElement.lang = lang === 'fr' ? 'fr' : 'en';
+    document.documentElement.lang = lang;
     updateBtn(lang);
   }
 
   function updateBtn(lang) {
-    const btn = document.getElementById('lang-btn');
-    if (!btn) return;
-    btn.textContent = lang === 'fr' ? 'EN' : 'FR';
-    btn.setAttribute('aria-label', lang === 'fr' ? 'Switch to English' : 'Passer en français');
+    var enOpt = document.querySelector('#lang-btn .ls-en');
+    var frOpt = document.querySelector('#lang-btn .ls-fr');
+    if (enOpt && frOpt) {
+      if (lang === 'fr') {
+        frOpt.classList.add('ls-active');
+        enOpt.classList.remove('ls-active');
+      } else {
+        enOpt.classList.add('ls-active');
+        frOpt.classList.remove('ls-active');
+      }
+    }
+    var btn = document.getElementById('lang-btn');
+    if (btn) btn.setAttribute('aria-label', lang === 'fr' ? 'Switch to English' : 'Passer en français');
   }
 
   function currentLang() {
@@ -424,9 +464,7 @@
     const themeBtn = document.getElementById('theme-btn');
     if (themeBtn) themeBtn.addEventListener('click', toggleTheme);
 
-    const lang = currentLang();
-    if (lang !== DEFAULT) apply(lang);
-    else updateBtn(DEFAULT);
+    apply(currentLang());
 
     const langBtn = document.getElementById('lang-btn');
     if (langBtn) langBtn.addEventListener('click', toggle);
