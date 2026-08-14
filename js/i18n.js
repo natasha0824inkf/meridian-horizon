@@ -357,6 +357,20 @@
       'blog-cta-h2':     'Une question sur la création d\'entreprise aux EAU ?',
       'blog-cta-p':      'Notre équipe est disponible pour une consultation initiale confidentielle et sans engagement.',
       'blog-cta-btn':    'Nous contacter',
+
+      /* --- Home inline CTAs --- */
+      'home-f1-cta': 'Notre réseau de partenaires',
+      'home-f2-cta': 'Guide : continent vs zone franche',
+      'home-f3-cta': 'Comment nous travaillons',
+      'home-f4-cta': 'Les secteurs que nous accompagnons',
+      'home-f5-cta': 'Notre offre complète de services',
+      'home-f6-cta': 'Pourquoi nous choisir',
+
+      /* --- UAE stats band --- */
+      'home-stat-zones':      'Zones franches aux EAU',
+      'home-stat-ownership':  'Propriété étrangère à 100%',
+      'home-stat-tax-treaty': 'Pays avec traité fiscal',
+      'home-stat-corp-tax':   'Taux d\'imposition des sociétés',
     },
 
     ar: {
@@ -696,6 +710,20 @@
       'blog-cta-h2':     'لديك سؤال حول الأعمال في الإمارات؟',
       'blog-cta-p':      'فريقنا متاح لاستشارة أولية سرية وبدون التزام.',
       'blog-cta-btn':    'تواصل معنا',
+
+      /* --- Home inline CTAs --- */
+      'home-f1-cta': 'شبكة شركائنا',
+      'home-f2-cta': 'دليل البر الرئيسي مقابل المنطقة الحرة',
+      'home-f3-cta': 'كيف نعمل',
+      'home-f4-cta': 'القطاعات التي ندعمها',
+      'home-f5-cta': 'نطاق خدماتنا الكامل',
+      'home-f6-cta': 'لماذا تختارنا',
+
+      /* --- UAE stats band --- */
+      'home-stat-zones':      'منطقة حرة في الإمارات',
+      'home-stat-ownership':  'ملكية أجنبية كاملة متاحة',
+      'home-stat-tax-treaty': 'دولة في اتفاقيات تجنب الازدواج الضريبي',
+      'home-stat-corp-tax':   'معدل ضريبة الشركات',
     }
   };
 
